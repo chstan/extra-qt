@@ -1,0 +1,7 @@
+.idea/
+dist/
+
+__pycache__
+
+# don't commit the lock file since we are distributing a library not an application
+poetry.lock
