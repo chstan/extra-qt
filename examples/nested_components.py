@@ -8,27 +8,19 @@ from extra_qt.dom.qt_dom import *
 
 
 @dataclass
-class ComponentAState:
+class State:
     counter: int = 0
 
     def update(self):
         self.counter += 5
 
 
-@dataclass
-class ComponentBState:
-    counter: int = 0
-
-    def update(self):
-        self.counter += 1
-
-
 class ComponentB(Component):
     @classmethod
     def get_initial_state(cls):
-        return ComponentBState()
+        return State()
 
-    update = Component.updates_state(ComponentBState.update)
+    update = Component.updates_state(State.update)
 
     def render(self):
         return group(dict(title='Inner Component',), [
@@ -41,7 +33,7 @@ class ComponentB(Component):
 class ComponentA(Component):
     @classmethod
     def get_initial_state(cls):
-        return ComponentAState()
+        return State()
 
     def after_mount(self):
         self.timer = QTimer()
@@ -51,7 +43,7 @@ class ComponentA(Component):
     def before_unmount(self):
         self.timer.stop()
 
-    update = Component.updates_state(ComponentAState.update)
+    update = Component.updates_state(State.update)
 
     def render(self):
         return group(dict(title='Outer Component',), [
