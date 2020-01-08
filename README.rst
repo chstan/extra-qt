@@ -1,6 +1,9 @@
 What is extra_qt?
 -----------------
 
+.. image::./docs/static/basic_example.gif
+   :width: 640
+
 ``extra_qt`` is a view layer for Python around PyQt5.
 It aims to be roughly interface comparable to React in Javascript.
 As a result, you can declare ``Component`` classes with the same lifecycle
