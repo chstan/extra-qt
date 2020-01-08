@@ -1,63 +1,55 @@
-What is extra_qt?
------------------
+# What is extra_qt?
 
-.. image::./docs/static/basic_example.gif
-   :width: 640
+![Example](./docs/static/basic_example.gif "Live Reload Example")
 
-``extra_qt`` is a view layer for Python around PyQt5.
+`extra_qt` is a view layer for Python around PyQt5.
 It aims to be roughly interface comparable to React in Javascript.
-As a result, you can declare ``Component`` classes with the same lifecycle
+As a result, you can declare `Component` classes with the same lifecycle
 methods as in React:
 
-* ``before_mount``
-* ``after_mount``
-* ``before_receive_props``
-* ``should_update``
-* ``before_unmount``
+* `before_mount`
+* `after_mount`
+* `before_receive_props`
+* `should_update`
+* `before_unmount`
 
-Unlike React Native, QML, or React QML, ``extra_qt``
+Unlike React Native, QML, or React QML, `extra_qt`
 is written entirely in Python so there's no bundled
 JavaScript interpreter, and working with it should be simpler
 for Python programmers.
 
-The current (alpha) version of ``extra_qt`` works around a
+The current (alpha) version of `extra_qt` works around a
 fairly literal (and primitive) version of the
-`React Stack Reconciler`_, with some terminology differences.
-As a result, ``extra_qt`` is considered pre-release
-and is distributed with a copy of the React license.
+[React Stack Reconciler](https://reactjs.org/docs/implementation-notes.html), 
+with some terminology differences. As a result, `extra_qt` is considered 
+pre-release and is distributed with a copy of the React license.
 
 Have a look at the examples folder to see what UI
 scripting looks like. For those coming from React, keep in mind there's no
 syntactic sugar like that provided by JSX for the moment.
 
-To play with the examples, install `watchgod`_ or another
-code reload tool and run
+To play with the examples, install [watchgod](https://github.com/samuelcolvin/watchgod) 
+or another code reload tool and run
 
-.. code-block:: bash
+```bash
+$> watchgod examples.basic.main
+or
+$> watchgod examples.nested_components.main
+```
 
-    $> watchgod examples.basic.main
-    or
-    $> watchgod examples.nested_components.main
-
-
-.. _React Stack Reconciler: https://reactjs.org/docs/implementation-notes.html
-.. _watchgod: https://github.com/samuelcolvin/watchgod
-
-Limitations
------------
+## Limitations
 
 The diff algorithm (reconciler) is currently very primitive. In
 particular, there is no support for:
 
 1. keys
 2. batched updates
-3. ``None``/missing children
+3. `None`/missing children
 
 Additionally, at the view layer, there is no support for bare string or `list` returns
 from Components.
 
-Why not use bare PyQt5?
------------------------
+## Why not use bare PyQt5?
 
 PyQt5 doesn't provide the most... convenient... bindings from a Python perspective.
 Writing custom widgets and composing them is also less than fun due to the cumbersome
@@ -66,8 +58,7 @@ layout interface.
 The Component structure also enforces more reasonable architecture than might otherwise
 emerge in a standard PyQt utility, which is as important as convenience.
 
-Isn't this slow?
-----------------
+## Isn't this slow?
 
 It's fast enough for relatively complex applications and UI scripting. In an ideal world
 we might have a view layer similar to React for native applications with FFI bindings to
