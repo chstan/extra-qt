@@ -26,9 +26,7 @@ jobs:
     jobs:
       py37:
         before:
-          - task: UsePythonVersion@0
-            inputs:
-              versionSpec: '3.7'
+          # pip should already be installed here, don't use a different python
           - script: python -m pip install --upgrade pip
           - script: python -m pip install --user poetry
         image: [linux, windows, macOs]
