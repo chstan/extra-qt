@@ -1,0 +1,8 @@
+# We use poetry inside tox, so we need to make sure we have that configured first.
+
+steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.7'
+  - script: python -m pip install --upgrade pip
+  - script: python -m pip install --user poetry

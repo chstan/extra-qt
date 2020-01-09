@@ -6,6 +6,12 @@ resources:
     name: tox-dev/azure-pipelines-template
     ref: refs/tags/0.2
 
+  - repository: extra_qt
+    type: github
+    endpoint: github
+    name: chstan/extra-qt
+    ref: master
+
 trigger:
 - master
 - release
@@ -17,7 +23,10 @@ jobs:
     tox_version: 'tox'
     jobs:
       py37:
+        before:
+          - template: get-poetry.yml@extra_qt
         image: [linux, windows, macOs]
+
 
 - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/release') }}:
   - template: publish-pypi.yml@tox
