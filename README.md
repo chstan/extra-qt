@@ -1,6 +1,8 @@
 # extra-qt 
 
+[![Build Status](https://dev.azure.com/chstansbury/extra-qt/_apis/build/status/chstan.extra-qt?branchName=master)](https://dev.azure.com/chstansbury/extra-qt/_build/latest?definitionId=2&branchName=master)
 [![Docs Status](https://readthedocs.org/projects/extra-qt/badge/?version=latest&style=flat)](https://extra-qt.readthedocs.io/en/latest/)
+[![Coverage Status](https://img.shields.io/azure-devops/coverage/chstansbury/extra-qt/2.svg)](https://dev.azure.com/chstansbury/extra-qt/_build?definitionId=2)
 
 ## What is `extra_qt`?
 
