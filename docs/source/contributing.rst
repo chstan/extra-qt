@@ -14,6 +14,7 @@ Installing a development copy
 -----------------------------
 
 .. code-block:: bash
+
    $> git clone https://github.com/chstan/extra-qt.git
    $> pip install --user poetry
    $> cd extra-qt
