@@ -6,15 +6,17 @@ resources:
     name: tox-dev/azure-pipelines-template
     ref: refs/tags/0.2
 
-  - repository: extra_qt
-    type: github
-    endpoint: github
-    name: chstan/extra-qt
-    ref: master
-
 trigger:
 - master
 - release
+
+# used to use a template here in order to install poetry but
+# Azure lazy evaluates template refs and won't allow you to for instance
+# template: a.yml@repoA
+#   setup_steps:
+#     - template: b.yml@repoB
+#
+# which is pretty crazy IMO.
 
 jobs:
 - template: run-tox-env.yml@tox
@@ -24,7 +26,11 @@ jobs:
     jobs:
       py37:
         before:
-          - template: get-poetry.yml@extra_qt
+          - task: UsePythonVersion@0
+            inputs:
+              versionSpec: '3.7'
+          - script: python -m pip install --upgrade pip
+          - script: python -m pip install --user poetry
         image: [linux, windows, macOs]
 
 

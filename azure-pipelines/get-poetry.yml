@@ -2,7 +2,7 @@
 
 steps:
   - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '3.7'
-  - script: python -m pip install --upgrade pip
-  - script: python -m pip install --user poetry
+      inputs:
+        versionSpec: '3.7'
+        - script: python -m pip install --upgrade pip
+        - script: python -m pip install --user poetry
