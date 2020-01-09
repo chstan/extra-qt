@@ -388,6 +388,9 @@ class QtDOMWrapper(HostWrapper):
 
 
 def render_window(element: VirtualNode, window=None, after_show: Optional[Callable[[QMainWindow], None]] = None):
+    from extra_qt.reconciler import reconciler
+    reconciler.configure()  # <- use Qt
+
     old_window = window
     window = build_app_window() if window is None else window
     container = window.centralWidget()

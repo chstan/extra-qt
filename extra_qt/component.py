@@ -10,8 +10,9 @@ class Component:
 
     wrapper: Type['ComponentWrapper'] = None
 
-    initial_state: Optional[Any] = None
     state: Optional[Any] = None
+    initial_state: Optional[Any] = None
+    initial_state_cls: Optional[type] = None
 
     def __init__(self, props, children):
         self.props = props
@@ -25,7 +26,10 @@ class Component:
 
     @classmethod
     def get_initial_state(cls):
-        return cls.initial_state
+        if cls.initial_state is not None:
+            return cls.initial_state
+        elif cls.initial_state_cls is not None:
+            return cls.initial_state_cls()
 
     @staticmethod
     def updates_state(state_method):

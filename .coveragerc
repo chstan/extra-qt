@@ -1,0 +1,5 @@
+[run]
+include =
+    extra_qt/*
+omit =
+    tests/*

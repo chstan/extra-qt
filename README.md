@@ -1,6 +1,6 @@
-# What is extra_qt?
+# What is `extra_qt`?
 
-![Example](./docs/static/basic_example.gif "Live Reload Example")
+![Example](docs/source/_static/basic_example.gif "Live Reload Example")
 
 `extra_qt` is a view layer for Python around PyQt5.
 It aims to be roughly interface comparable to React in Javascript.

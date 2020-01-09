@@ -16,10 +16,7 @@ class State:
 
 
 class ComponentB(Component):
-    @classmethod
-    def get_initial_state(cls):
-        return State()
-
+    initial_state_cls = State
     update = Component.updates_state(State.update)
 
     def render(self):
@@ -31,9 +28,8 @@ class ComponentB(Component):
 
 
 class ComponentA(Component):
-    @classmethod
-    def get_initial_state(cls):
-        return State()
+    initial_state_cls = State
+    update = Component.updates_state(State.update)
 
     def after_mount(self):
         self.timer = QTimer()
@@ -42,8 +38,6 @@ class ComponentA(Component):
 
     def before_unmount(self):
         self.timer.stop()
-
-    update = Component.updates_state(State.update)
 
     def render(self):
         return group(dict(title='Outer Component',), [
@@ -54,7 +48,8 @@ class ComponentA(Component):
 
 
 def main():
-    from extra_qt.reconciler import reconciler
-    reconciler.configure()  # Use Qt
-
     render_window(create_element(ComponentA))
+
+
+if __name__ == '__main__':
+    main()
