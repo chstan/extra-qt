@@ -1,4 +1,8 @@
-# What is `extra_qt`?
+# extra-qt 
+
+[![Docs Status](https://readthedocs.org/projects/extra-qt/badge/?version=latest&style=flat)](https://extra-qt.readthedocs.io/en/latest/)
+
+## What is `extra_qt`?
 
 ![Example](docs/source/_static/basic_example.gif "Live Reload Example")
 
